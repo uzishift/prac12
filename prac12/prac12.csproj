@@ -10,10 +10,12 @@
 
   <ItemGroup>
     <None Remove="Безымянный-no-bg-preview %28carve.photos%29 %281%29.png" />
+    <None Remove="Безымянный-no-bg-preview %28carve.photos%29 %282%29.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="Безымянный-no-bg-preview (carve.photos) (1).png" />
+    <Resource Include="Безымянный-no-bg-preview (carve.photos) (2).png" />
   </ItemGroup>
 
 </Project>
