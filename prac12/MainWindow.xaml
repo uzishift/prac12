@@ -1,0 +1,104 @@
+﻿<Window x:Class="prac12.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:prac12"
+        mc:Ignorable="d"
+        Title="Расчет и извлечение" Height="450" Width="350" Icon="/Безымянный-no-bg-preview (carve.photos) (1).png" ResizeMode="CanMinimize" Background="#F0F0F0" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Menu Background="#218359" Foreground="White" FontWeight="Bold">
+            <MenuItem Header="Файл">
+                <MenuItem Header="О программе" Click="btnInfo_Click" Foreground="Black" FontWeight="Normal">
+                    <MenuItem.Icon>
+                        <Image Source="/Безымянный-no-bg-preview (carve.photos) (1).png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator/>
+                <MenuItem Header="Выход" Click="btnExit_Click" Foreground="Black" FontWeight="Normal"/>
+            </MenuItem>
+            <MenuItem Header="Действия">
+                <MenuItem Header="Рассчитать" Click="btnCalculate_Click" x:Name="btnCalculate" Foreground="Black" FontWeight="Normal" ToolTip="Кнопка рассчета расстояния между двумя точками"/>
+                <MenuItem Header="Получить первую цифру" Click="btnFirtsDigit_Click" x:Name="btnFirstDigit" Foreground="Black" FontWeight="Normal" ToolTip="Получение первой цифры из трехзначного числа"/>
+            </MenuItem>
+        </Menu>
+
+        <TabControl x:Name="tControl" SelectionChanged="tControl_Changed" Margin="10,10,10,10" Grid.Row="1">
+            <TabItem Header="Расстояние">
+                <Border Margin="10" Background="#F7F7F7" CornerRadius="5">
+                    <StackPanel Margin="10">
+                        <GroupBox Header="Исходные данные" Margin="0,0,0,10" Background="#EAEAEA">
+                            <GroupBox.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Header="Очистить координаты" Click="cmClearCoordinates_Click"/>
+                                </ContextMenu>
+                            </GroupBox.ContextMenu>
+                            <StackPanel Margin="10">
+                                <Label Content="Координаты (x1, y1):" />
+                                <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                                    <TextBox x:Name="tbX1" Width="50" Margin="0,0,5,0" Padding="3" MaxLength="6" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                                    <TextBox x:Name="tbY1" Width="50" Margin="0,0,5,0" Padding="3" MaxLength="6" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                                </StackPanel>
+                                <Label Content="Координаты (x2, y2):" Margin="0,10,0,0"/>
+                                <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                                    <TextBox x:Name="tbX2" Width="50" Margin="0,0,5,0" Padding="3" MaxLength="6" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                                    <TextBox x:Name="tbY2" Width="50" Margin="0,0,5,0" Padding="3" MaxLength="6" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                                </StackPanel>
+                                <Button Content="Рассчитать" Click="btnCalculate_Click" Margin="0,10,0,0" Background="#007241" Foreground="White" FontWeight="Bold" ToolTip="Кнопка рассчета расстояния между двумя точками"/>
+                            </StackPanel>
+                        </GroupBox>
+                        <GroupBox Header="Результат" Background="#EAEAEA">
+                            <GroupBox.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Header="Очистить результат" Click="cmClearCalcRez_Click"/>
+                                </ContextMenu>
+                            </GroupBox.ContextMenu>
+                            <TextBox x:Name="tbDistance" IsReadOnly="True" Margin="10" Padding="3" Background="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                        </GroupBox>
+                    </StackPanel>
+                </Border>
+            </TabItem>
+
+            <TabItem Header="Первая цифра">
+                <Border Margin="10" Background="#F7F7F7" CornerRadius="5">
+                    <StackPanel Margin="10">
+                        <GroupBox Header="Исходные данные" Margin="0,0,0,10" Background="#EAEAEA">
+                            <GroupBox.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Header="Очистить" Click="cmThreeDigitClear_Click"/>
+                                </ContextMenu>
+                            </GroupBox.ContextMenu>
+                            <StackPanel Margin="10">
+                                <Label Content="Трехзначное число:" />
+                                <TextBox x:Name="tbThreeDigit" Width="100" MaxLength="3" Margin="0,0,0,10" Padding="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                                <Button Content="Получить первую цифру" Click="btnFirtsDigit_Click" Background="#007241" Foreground="White" FontWeight="Bold" ToolTip="Получение первой цифры из трехзначного числа"/>
+                            </StackPanel>
+                        </GroupBox>
+                        <GroupBox Header="Результат" Background="#EAEAEA">
+                            <GroupBox.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Header="Очистить результат" Click="cmClearFirtsDigit_Click"/>
+                                </ContextMenu>
+                            </GroupBox.ContextMenu>
+                            <TextBox x:Name="tbFirstDigitResult" IsReadOnly="True" Margin="10" Padding="3" Background="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                        </GroupBox>
+                    </StackPanel>
+                </Border>
+            </TabItem>
+        </TabControl>
+
+        <StatusBar Grid.Row="2" Margin="0,2,0,0" Background="#218359" Foreground="White">
+            <TextBlock x:Name="tbName" Text="12 Практическая"/>
+            <Separator Background="White"/>
+            <TextBlock x:Name="tbTime" Text=" "/>
+            <Separator Background="White"/>
+            <TextBlock x:Name="tbData" Text=" "/>
+        </StatusBar>
+    </Grid>
+</Window>

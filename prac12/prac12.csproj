@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Безымянный-no-bg-preview %28carve.photos%29 %281%29.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Безымянный-no-bg-preview (carve.photos) (1).png" />
+  </ItemGroup>
+
+</Project>
