@@ -96,7 +96,13 @@ namespace prac12
         private void btnCalculate_Click(object sender, RoutedEventArgs e)
         {
             ClearResults();
-
+            CalculateCoordinates();
+        }
+        /// <summary>
+        /// Метод для нахождения расстояния
+        /// </summary>
+        private void CalculateCoordinates()
+        {
             if (double.TryParse(tbX1.Text, out double x1) &&
                 double.TryParse(tbY1.Text, out double y1) &&
                 double.TryParse(tbX2.Text, out double x2) &&
@@ -118,7 +124,13 @@ namespace prac12
         private void btnFirtsDigit_Click(object sender, RoutedEventArgs e)
         {
             ClearResults();
-
+            FirstDigitFinder();
+        }
+        /// <summary>
+        /// Метод для нахождения первой цифры в трехзначном числе
+        /// </summary>
+        private void FirstDigitFinder()
+        {
             if (int.TryParse(tbThreeDigit.Text, out int number) && number >= 100 && number <= 999)
             {
                 int firstDigit = number / 100;
