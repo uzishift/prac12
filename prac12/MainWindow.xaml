@@ -94,9 +94,9 @@
         <StatusBar Grid.Row="2" Margin="0,2,0,0" Background="#008B8B" Foreground="White">
             <TextBlock x:Name="tbName" Text="12 Практическая"/>
             <Separator Background="White"/>
-            <TextBlock x:Name="tbTime" Text=" "/>
+            <TextBlock x:Name="tbTime" Text="Загрузка..."/>
             <Separator Background="White"/>
-            <TextBlock x:Name="tbData" Text=" "/>
+            <TextBlock x:Name="tbData" Text="Загрузка..."/>
         </StatusBar>
     </Grid>
 </Window>

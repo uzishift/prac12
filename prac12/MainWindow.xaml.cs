@@ -27,7 +27,9 @@ namespace prac12
             InitializeComponent();
             TabControlSelectionChanged();
             InitializeTimer();
+            
         }
+        
 
         /// <summary>
         /// Метод блокировки кнопки в неактивной вкладке
